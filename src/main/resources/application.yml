@@ -1,0 +1,10 @@
+mockedServices:
+    -   serviceName: api.beneficiaries.dev
+        port: 8900
+        isRunning: true
+        stubs:
+            -   request:
+                    url: /beneficiaries
+                    method: GET
+                response:
+                    status: 200
