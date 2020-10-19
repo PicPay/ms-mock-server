@@ -1,4 +1,4 @@
-package com.picpay.mockserver;
+package com.picpay.mock.server;
 
 import lombok.Data;
 

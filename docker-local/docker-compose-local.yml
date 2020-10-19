@@ -1,0 +1,16 @@
+version: '3.4'
+
+services:
+    api.mock-server.dev:
+        container_name: api.mock-server.dev
+        image: api.mock-server.dev
+        build:
+            context: ../
+            dockerfile: docker-local/Dockerfile
+        ports:
+            - "8900:8900"
+        networks:
+            - bubble
+networks:
+    bubble:
+        external: true

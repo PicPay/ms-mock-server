@@ -1,4 +1,4 @@
-package com.picpay.mockserver;
+package com.picpay.mock.server;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.fasterxml.jackson.dataformat.yaml.YAMLFactory;
@@ -11,15 +11,13 @@ import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.annotation.Bean;
+import org.springframework.util.StreamUtils;
 
 import java.io.IOException;
+import java.io.InputStream;
 import java.net.InetAddress;
 import java.net.InetSocketAddress;
 import java.net.ServerSocket;
-import java.net.URI;
-import java.net.URISyntaxException;
-import java.nio.file.Files;
-import java.nio.file.Paths;
 import java.util.concurrent.TimeUnit;
 
 @Log4j2
@@ -36,9 +34,9 @@ public class MockServerApplication {
     }
 
     @Bean
-    public MockServer mockServer() throws URISyntaxException, IOException {
-        final URI uri = this.getClass().getClassLoader().getResource("application.yml").toURI();
-        final String yml = new String(Files.readAllBytes(Paths.get(uri)));
+    public MockServer mockServer() throws IOException {
+        final InputStream in = MockServerApplication.class.getClassLoader().getResourceAsStream("application.yml");
+        final String yml = new String(StreamUtils.copyToByteArray(in));
         return new ObjectMapper(new YAMLFactory()).readValue(yml, MockServer.class);
     }
 

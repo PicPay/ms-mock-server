@@ -1,4 +1,4 @@
-package com.picpay.mockserver;
+package com.picpay.mock.server;
 
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;
