@@ -8,3 +8,15 @@ mockedServices:
                     method: GET
                 response:
                     status: 200
+
+    -   serviceName: api.feature-management.dev
+        port: 8901
+        isRunning: true
+        stubs:
+            -   request:
+                    url: /features/values
+                    method: GET
+                response:
+                    status: 200
+                    body: |
+                        [{"name":"feature_search_suggestions","value":"true","type":"B"},{"name":"feature_feed","value":"true","type":"B"},{"name":"feature_search_consumers","value":"true","type":"B"},{"name":"feature_search_locale","value":"true","type":"B"},{"name":"feature_search_main","value":"true","type":"B"},{"name":"feature_search_places","value":"true","type":"B"},{"name":"feature_search_store","value":"true","type":"B"}]
