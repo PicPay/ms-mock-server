@@ -20,3 +20,13 @@ mockedServices:
                     status: 200
                     body: |
                         [{"name":"feature_search_suggestions","value":"true","type":"B"},{"name":"feature_feed","value":"true","type":"B"},{"name":"feature_search_consumers","value":"true","type":"B"},{"name":"feature_search_locale","value":"true","type":"B"},{"name":"feature_search_main","value":"true","type":"B"},{"name":"feature_search_places","value":"true","type":"B"},{"name":"feature_search_store","value":"true","type":"B"}]
+
+    -   serviceName: api.mgm.dev
+        port: 8902
+        isRunning: true
+        stubs:
+            -   request:
+                    url: /api/v1/consumers
+                    method: POST
+                response:
+                    status: 200
