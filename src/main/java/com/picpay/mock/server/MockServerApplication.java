@@ -61,7 +61,6 @@ public class MockServerApplication {
     private WireMockServer buildServer(final MockedServices mockedService) {
         return new WireMockServer(WireMockConfiguration.options()
             .extensions(new ResponseTemplateTransformer(false))
-            .dynamicPort()
             .port(mockedService.getPort())
             .disableRequestJournal()
             .asynchronousResponseEnabled(true));

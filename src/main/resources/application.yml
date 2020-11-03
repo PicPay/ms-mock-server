@@ -4,10 +4,13 @@ mockedServices:
         isRunning: true
         stubs:
             -   request:
-                    url: /beneficiaries
+                    urlPath: /beneficiaries
                     method: GET
                 response:
                     status: 200
+                    headers:
+                        Content-Type: application/json
+                    jsonBody: []
 
     -   serviceName: api.feature-management.dev
         port: 8901
