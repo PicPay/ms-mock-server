@@ -23,3 +23,16 @@ mockedServices:
                     status: 200
                     body: |
                         [{"name":"feature_search_suggestions","value":"true","type":"B"},{"name":"feature_feed","value":"true","type":"B"},{"name":"feature_search_consumers","value":"true","type":"B"},{"name":"feature_search_locale","value":"true","type":"B"},{"name":"feature_search_main","value":"true","type":"B"},{"name":"feature_search_places","value":"true","type":"B"},{"name":"feature_search_store","value":"true","type":"B"}]
+
+    -   serviceName: api.rewards-management.dev
+        port: 8902
+        isRunning: false
+        stubs:
+            -   request:
+                    url: /rewards
+                    method: GET
+                response:
+                    status: 174
+                    headers:
+                        Content-Type: application/json
+                    jsonBody: []
